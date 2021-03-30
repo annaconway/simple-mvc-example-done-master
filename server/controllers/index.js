@@ -361,11 +361,35 @@ const searchDogName = (req, res) => {
       return res.json({ error: 'No dogs found' });
     }
 
+    const dog = doc;
+
+    // Your model is JSON, so just change a value in it.
+    // This is the benefit of ORM (mongoose) and/or object documents (Mongo NoSQL)
+    // You can treat objects just like that - objects.
+    // Normally you'd find a specific object, but we will only
+    // give the user the ability to update our last object
+    dog.age++;
+
+    // once you change all the object properties you want,
+    // then just call the Model object's save function
+    // create a new save promise for the database
+    const savePromise = dog.save();
+
+    // send back the name as a success for now
+    savePromise.then(() => res.json({
+      name: dog.name,
+      breed: dog.breed,
+      age: dog.age,
+    }));
+
+    // if save error, just return an error for now
+    savePromise.catch((err2) => res.status(500).json({ err2 }));
+
     // if a match, send the match back
     return res.json({
-      name: doc.name,
-      breed: doc.breed,
-      age: doc.age,
+      name: dog.name,
+      breed: dog.breed,
+      age: dog.age,
     });
   });
 };
