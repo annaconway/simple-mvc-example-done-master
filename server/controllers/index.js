@@ -279,7 +279,7 @@ const setDogName = (req, res) => {
     // This way we can update it dynamically
     lastAddedDog = newDog;
     // return success
-    res.json({ name: lastAdded.name, breed: lastAdded.breed, age: lastAdded.age });
+    res.json({ name: lastAddedDog.name, breed: lastAddedDog.breed, age: lastAddedDog.age });
   });
 
   // if error, return it
