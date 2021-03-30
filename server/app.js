@@ -26,7 +26,7 @@ const router = require('./router.js');
 // otherwise fallback to localhost.
 // The string after mongodb://localhost is the database name. It can be anything you want.
 // const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/simpleMVCExample';
-const dbURL = 'mongodb+srv://annaConway:zoeConway@cluster0.bcwxq.mongodb.net/simpleMVCExample';
+const dbURL = 'mongodb+srv://annaConway:zoeConway@cluster0.e8jd0.mongodb.net/simpleMVCExample';
 
 // A number of options for Mongoose to turn on newer features supported by
 // newer version of MongoDB.
